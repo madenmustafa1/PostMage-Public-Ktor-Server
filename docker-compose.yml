@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  postmage:
+    image: madenmustafa/postmage:latest
+    ports:
+      - "8080:8080"
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodbdata:/data/db
+
+volumes:
+    mongodb_data_container:

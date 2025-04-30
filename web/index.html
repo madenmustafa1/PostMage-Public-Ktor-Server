@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>PostMage</title>
+  <meta name="description" content="A resource to help developers evaluate and use Flutter.">
+  <link rel="manifest" href="manifest.json">
+  <base href="/">
+
+  <!-- Browser meta tags & icons -->
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="gallery">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:700" rel="stylesheet" media="all">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBB5H8CECM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HBB5H8CECM');
+  </script>
+
+  <!-- Renderer specifier -->
+  <script>
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('renderer')) {
+      window.flutterWebRenderer = searchParams.get('renderer');
+      console.log(searchParams.get('renderer') + ' renderer requested in the URL');
+    }
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "866928725";
+  </script>
+
+  <script src="flutter.js" defer></script>
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: #030303;
+    }
+  </style>
+
+
+<div id="loading">
+  <style>
+    body {
+      inset: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+    }
+
+    #loading {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+      background-color: #2f384c;
+      overflow: hidden;
+    }
+
+    #loading img {
+      animation: zoomInOut 1.2s ease-in-out infinite alternate;
+      opacity: .8;
+      transition: opacity .4s;
+      width: 100px; 
+      height: 100px;
+      border-radius: 50%; 
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.12);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <img src="icons/app_icon_white_transparent.png" alt="PostMage" />
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+    var loading = document.querySelector('#loading');
+    _flutter.loader.loadEntrypoint({
+      serviceWorker: {
+        serviceWorkerVersion: serviceWorkerVersion,
+      }
+    }).then(function (engineInitializer) {
+      loading.classList.add('main_done');
+      return engineInitializer.initializeEngine();
+    }).then(function (appRunner) {
+      loading.classList.add('init_done');
+      return appRunner.runApp();
+    }).then(function (app) {
+      // Wait a few milliseconds so users can see the animation before hiding the "loading" div.
+      setTimeout(function () {
+        loading.style.opacity = '0';
+        loading.style.pointerEvents = 'none'; // Optional: Prevent interaction with elements behind
+      }, 200); // Adjust timing as needed
+    });
+  });
+</script>
+
+  <script>
+    window.addEventListener('load', function () {
+      var loading = document.querySelector('#loading');
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function (engineInitializer) {
+        loading.classList.add('main_done');
+        return engineInitializer.initializeEngine();
+      }).then(function (appRunner) {
+        loading.classList.add('init_done');
+        return appRunner.runApp();
+      }).then(function (app) {
+        // Wait a few milliseconds so users can see the "zoooom" animation
+        // before getting rid of the "loading" div.
+        window.setTimeout(function () {
+          loading.classList.add('remove-animation');
+          // Alternatively, you can use loading.remove() here instead of the class addition
+        }, 200);
+      });
+    });
+  </script>
+  <!-- App -->
+</body>
+
+</html>

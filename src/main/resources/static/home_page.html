@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store & Google Play</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0467B3;
+        }
+
+        .container {
+            position: relative;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            margin-top: 20px;
+
+            padding-top: 20px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+            padding-left: 40px;
+        }
+
+        .combined-link {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            overflow: hidden;
+        }
+
+        .combined-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+        .combined-label {
+            color: #0467B3;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .combined-link:hover {
+            opacity: 0.7;
+        }
+
+        .container-text {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p class="container-text">PostMage.</p>
+
+    <a href="https://apps.apple.com/us/app/postmage/id6448243253" class="combined-link">
+        <img src="https://www.apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
+             alt="App Store" class="combined-logo">
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.maden.postmage" class="combined-link">
+        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Logo_Play_512px_clr_nGVTgYY.width-500.format-webp.webp"
+             alt="Google Play" class="combined-logo">
+    </a>
+</div>
+
+</body>
+</html>
